@@ -37,14 +37,34 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $fields = $request->validate([
-            'email' => 'required|email',
-            'username' => 'required|string|max:15',
-            'password' => 'required|string'
-        ]);
+        $input = $request->input('username');
+        $fields = "";
+        $user = "";
+
+        //Check if entered username is an email or a username(twitter handle)
+        //twitter accepts email or twitter handle as login credential together with password
+        if (filter_var($input, FILTER_VALIDATE_EMAIL)) {
+            $fields = $request->validate([
+                'username' => 'required|email',
+                'password' => 'required|string'
+            ]);
+            $user = User::where('email', $fields['username'])->first();
+        } else {
+            $fields = $request->validate([
+                'username' => 'required|string|regex:/\w*$/|max:15',
+                'password' => 'required|string'
+            ]);
+            $user = User::where('username', $fields['username'])->first();
+        };
+
+        // $fields = $request->validate([
+        //     'email' => 'required|email',
+        //     'username' => 'required|string|max:15',
+        //     'password' => 'required|string'
+        // ]);
 
         //Check email or username
-        $user = User::where('email', $fields['email'])->orWhere('username', $fields['username'])->first();
+        // $user = User::where('email', $fields['email'])->orWhere('username', $fields['username'])->first();
 
         //Check password
         if (!$user || !Hash::check($fields['password'], $user->password)) {

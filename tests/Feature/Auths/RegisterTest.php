@@ -89,6 +89,34 @@ class RegisterTest extends TestCase
             ->assertJsonValidationErrors(['email']);
     }
 
+    public function testRegisterFailsWithUsedUsername()
+    {
+        $user1 = [
+            'name' => 'Domskies Bacasnot',
+            'username' => 'tamweiwen',
+            'email' => 'cassieross89@gmail.com',
+            'password' => 'holefire123!',
+            'password_confirmation' => 'holefire123!'
+        ];
+
+        //first Sign-up attempt succeeds
+        $response1 = $this->json('POST', '/api/register', $user1);
+        $response1->assertStatus(201);
+
+        $user2 = [
+            'name' => 'Donnes Bacs',
+            'username' => 'tamweiwen',
+            'email' => 'donnesbacs@gmail.com',
+            'password' => 'holefire123!',
+            'password_confirmation' => 'holefire123!'
+        ];
+
+        //second sign-up attempt fails due to used username
+        $response2 = $this->json('POST', '/api/register', $user2);
+        $response2->assertStatus(422)
+            ->assertJsonValidationErrors(['username']);
+    }
+
     public function testRegisterFailsWithInvalidPasswordConfirmation()
     {
         $user = [
