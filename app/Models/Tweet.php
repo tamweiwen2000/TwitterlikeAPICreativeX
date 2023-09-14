@@ -11,6 +11,7 @@ class Tweet extends Model
     use HasFactory, SoftDeletes;
     protected $fillable = [
         'tweet_body',
-        'user_id'
+        'user_id',
+        'attachment_path'
     ];
 }

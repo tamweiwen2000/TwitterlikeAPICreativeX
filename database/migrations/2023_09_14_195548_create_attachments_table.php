@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tweets', function (Blueprint $table) {
+        Schema::create('attachments', function (Blueprint $table) {
             $table->id();
-            $table->string('tweet_body', 280);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->string('attachment_path')->nullable();
-            $table->softDeletes();
+            $table->unsignedBigInteger('tweet_id');
+            $table->foreign('tweet_id')->references('id')->on('tweets');
+            $table->string('filename');
+            $table->string('mime_type');
+            $table->integer('size');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tweets');
+        Schema::dropIfExists('attachments');
     }
 };
