@@ -17,11 +17,13 @@ class TweetController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create new tweet
      */
     public function store(Request $request)
     {
+        //get current user's id
         $user = Auth::user()->id;
+
         $fields = $request->validate([
             'tweet_body' => 'required'
         ]);
@@ -41,11 +43,15 @@ class TweetController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update tweet
      */
     public function update(Request $request, string $id)
     {
-        //
+        $tweet = Tweet::find($id);
+        $tweet->update([
+            'tweet_body' => $request['tweet_body']
+        ]);
+        return $tweet;
     }
 
     /**
