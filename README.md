@@ -7,7 +7,7 @@ Requirements: Use the latest version of Laravel
 -   [x] Ability to register (required)
 -   [x] Ability to login/logout (required)
 -   [x] Create/update tweet (required)
--   [ ] Upload file attachment(s) to a tweet (required)
+-   [x] Upload file attachment(s) to a tweet (required)
 -   [ ] Delete tweet
 -   [ ] Follow/unfollow a user
 -   [ ] List followed user's tweet
