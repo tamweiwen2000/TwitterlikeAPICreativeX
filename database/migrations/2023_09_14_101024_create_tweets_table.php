@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('tweet_body', 280);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('attachment_path')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
