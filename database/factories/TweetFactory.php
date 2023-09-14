@@ -24,7 +24,6 @@ class TweetFactory extends Factory
         return [
             'tweet_body' => fake()->realText(280),
             'user_id' => $userID,
-            'attachment_path' => fake()->imageUrl(), // Generate a sample image URL
         ];
     }
 }
