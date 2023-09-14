@@ -38,8 +38,6 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $input = $request->input('username');
-        $fields = "";
-        $user = "";
 
         //Check if entered username is an email or a username(twitter handle)
         //twitter accepts email or twitter handle as login credential together with password
