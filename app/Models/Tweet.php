@@ -10,6 +10,7 @@ class Tweet extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
-        'tweet_body'
+        'tweet_body',
+        'user_id'
     ];
 }

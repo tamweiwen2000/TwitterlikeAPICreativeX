@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('tweets', function (Blueprint $table) {
             $table->id();
+            $table->string('tweet_body', 280);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('tweet_attachment_link')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
