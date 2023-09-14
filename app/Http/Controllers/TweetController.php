@@ -74,13 +74,14 @@ class TweetController extends Controller
 
         if ($request['attachments']) {
             $attachment = $this->attachmentController->store($request, $tweet->id);
+            $attachmentResponse = $attachment->original;
         } else {
-            $attachment = null;
+            $attachmentResponse = null;
         }
 
         $response = [
             'tweet' => $tweet,
-            'attachments' => $attachment->original
+            'attachments' => $attachmentResponse
         ];
 
         return response($response, 201);
