@@ -37,7 +37,6 @@ class TweetTest extends TestCase
             'tweet' => [
                 'tweet_body',
                 'user_id',
-                'attachment_path',
                 'updated_at',
                 'created_at',
                 'id'
