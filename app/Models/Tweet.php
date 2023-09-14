@@ -12,6 +12,5 @@ class Tweet extends Model
     protected $fillable = [
         'tweet_body',
         'user_id',
-        'attachment_path'
     ];
 }
