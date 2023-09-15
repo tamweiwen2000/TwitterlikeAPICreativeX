@@ -20,7 +20,11 @@ class TweetPolicy
      */
     public function update(User $user, Tweet $tweet): bool
     {
-        // dd($user->id);
+        return $user->id === $tweet->user_id;
+    }
+
+    public function delete(User $user, Tweet $tweet): bool
+    {
         return $user->id === $tweet->user_id;
     }
 }

@@ -7,6 +7,7 @@ use App\Models\Attachment;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\AttachmentController;
 
@@ -120,6 +121,10 @@ class TweetController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tweet = Tweet::findOrFail($id);
+
+        if (Gate::authorize('delete', $tweet)) {
+            return Tweet::destroy($id);
+        }
     }
 }
