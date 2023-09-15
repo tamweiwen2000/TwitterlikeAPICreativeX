@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('attachments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('tweet_id');
-            $table->foreign('tweet_id')->references('id')->on('tweets');
+            $table->foreign('tweet_id')->references('id')->on('tweets')->onDelete('cascade');
             $table->string('filename');
             $table->string('mime_type');
             $table->integer('size');

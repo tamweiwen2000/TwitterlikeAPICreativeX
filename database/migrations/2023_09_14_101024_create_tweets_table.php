@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('tweet_body', 280);
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->softDeletes();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->softDeletes();
             $table->timestamps();
         });
     }
