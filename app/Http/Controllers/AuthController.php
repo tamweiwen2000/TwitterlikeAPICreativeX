@@ -83,6 +83,10 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        if (!Auth::check()) {
+            return response()->json(['message' => 'Unauthorized uwu'], 401);
+        }
+
         $user = Auth::user();
         $user->tokens()->delete();
 
