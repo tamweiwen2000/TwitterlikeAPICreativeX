@@ -1,6 +1,6 @@
 # TwitterlikeAPICreativeX
 
-This project is a simple Twitter clone that allows users to register, login, create tweets, update tweets, delete tweets, and logout for the Backend API Practical Test at CreativeX Co. Ltd. (Junior Laravel Developer Job Application). It is built using the Laravel framework.
+This project is a simple Twitter clone for the Backend API Practical Test at CreativeX Co. Ltd. (Junior Laravel Developer Job Application). It is built using the Laravel framework.
 
 ## Getting Started
 
