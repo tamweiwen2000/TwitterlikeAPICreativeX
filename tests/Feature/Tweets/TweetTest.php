@@ -15,8 +15,6 @@ class TweetTest extends TestCase
     use RefreshDatabase;
     use WithFaker;
 
-
-
     public function testCreateTweetSuccessfully()
     {
         $user = User::factory()->create();
@@ -63,10 +61,16 @@ class TweetTest extends TestCase
 
         $tweet_id = $tweet['id'];
 
-        //create many attachments
-        Attachment::factory()->create(['tweet_id' => $tweet_id]);
-        Attachment::factory()->create(['tweet_id' => $tweet_id]);
-        Attachment::factory()->create(['tweet_id' => $tweet_id]);
-        Attachment::factory()->create(['tweet_id' => $tweet_id]);
+        //create many attachments of this tweet
+        for ($i = 0; $i < 5; $i++) {
+            $attachment = Attachment::factory()->create(['tweet_id' => $tweet_id]);
+
+            $this->assertDatabaseHas('attachments', [
+                'tweet_id' => $attachment->tweet_id,
+                'filename' => $attachment->filename,
+                'mime_type' => $attachment->mime_type,
+                'size' => $attachment->size,
+            ]);
+        }
     }
 }
