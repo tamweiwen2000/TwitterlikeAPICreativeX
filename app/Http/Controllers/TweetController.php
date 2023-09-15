@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tweet;
+use App\Models\Attachment;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
@@ -72,11 +73,49 @@ class TweetController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        dd($request->hasFile('attachments'));
         $tweet = Tweet::find($id);
-        $tweet->update([
-            'tweet_body' => $request['tweet_body']
+
+        $fields = $request->validate([
+            'tweet_body' => 'required'
         ]);
-        return $tweet;
+
+        // Get the attachments of the tweet
+        $attachments = $tweet->attachments;
+
+        // Update the attachments of the tweet if the $request contains attachments
+        if ($request->hasFile('attachments')) {
+            // $newAttachments = [];
+
+            // Delete the existing attachments
+            foreach ($attachments as $attachment) {
+                $attachment->delete();
+            }
+
+            foreach ($request->file('attachments') as $attachment) {
+                $filename = uniqid() . '.' . $attachment->getClientOriginalExtension();
+                $attachment->storeAs('public/tweets/attachments', $filename);
+
+                $newAttachment = new Attachment();
+                $newAttachment->filename = $filename;
+                // $newAttachment->file_path = $attachment->storeAs('attachments', $attachment->getClientOriginalName());
+                $newAttachment->tweet_id = $tweet->id;
+                $newAttachment->mime_type = $attachment->getMimeType();
+                $newAttachment->size = $attachment->getSize();
+
+                $newAttachment->save();
+            }
+        }
+
+        $tweet->update([
+            'tweet_body' => $fields['tweet_body'],
+        ]);
+
+        $response = [
+            'tweet' => $tweet,
+        ];
+
+        return response($response, 201);
     }
 
     /**
