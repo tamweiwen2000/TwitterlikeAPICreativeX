@@ -1,0 +1,1073 @@
+{
+	"info": {
+		"_postman_id": "e1cf9481-11db-4afd-9c95-33f8136f53a5",
+		"name": "TwitterlikeAPICreativeX",
+		"description": "**Introduction**\n\nThis API documentation describes the endpoints and methods available for the TwitterlikeAPICreativeX laravel project. The project is a simple Twitter clone that allows users to register, login, create tweets, update tweets, delete tweets, and logout.\n\n**Prerequisites**\n\nBefore you can use this API, you need to set up the Laravel project. This includes:\n\n- Installing Laravel Project ([https://github.com/tamweiwen2000/TwitterlikeAPICreativeX.git](https://github.com/tamweiwen2000/TwitterlikeAPICreativeX.git))\n    \n- Running the database migrations\n    \n- Run the project on a development server (php artisan serve)\n    \n\n**How to use this documentation**\n\nThis documentation is divided into two sections:\n\n- Non-Auth APIs: These APIs do not require an authentication token.\n    \n- Auth APIs: These APIs require an authentication token.\n    \n\nFor more information, please refer to the documentation.\n\nI hope this helps!",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29653077"
+	},
+	"item": [
+		{
+			"name": "Non-Auth",
+			"item": [
+				{
+					"name": "register_user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Dominic Bacasnot",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "antiparty",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "doms@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password321",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "password321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"register"
+							]
+						},
+						"description": "Registers a new user.\n\nGenerates an auth token. Input this token on Auth tab with type 'Bearer Token' when calling APIs from Auth collection folder."
+					},
+					"response": [
+						{
+							"name": "register_user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Dominic Bacasnot",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "antiparty",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "doms@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password321",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "password321",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 20:53:09 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 20:53:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"name\": \"Dominic Bacasnot\",\n        \"username\": \"antiparty\",\n        \"email\": \"doms@gmail.com\",\n        \"updated_at\": \"2023-09-15T20:53:09.000000Z\",\n        \"created_at\": \"2023-09-15T20:53:09.000000Z\",\n        \"id\": 18\n    },\n    \"token\": \"10|8p4jcd83RP1URrswaC2OLouGIZQiaQls5NdbV2imbdc8c976\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login_user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "antiparty",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "Logins a user.\n\nGenerates an auth token. Input this token on Auth tab with type 'Bearer Token' when calling APIs from Auth collection folder."
+					},
+					"response": [
+						{
+							"name": "login_user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "antiparty",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "password321",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 20:57:49 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 20:57:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"user\": {\n        \"id\": 18,\n        \"name\": \"Dominic Bacasnot\",\n        \"username\": \"antiparty\",\n        \"email\": \"doms@gmail.com\",\n        \"email_verified_at\": null,\n        \"created_at\": \"2023-09-15T20:53:09.000000Z\",\n        \"updated_at\": \"2023-09-15T20:53:09.000000Z\"\n    },\n    \"token\": \"11|li3gXFwkm6uCO8LmaRBhDJvBIEQowKostwX0nrqye1dd6103\"\n}"
+						}
+					]
+				}
+			],
+			"description": "The following API calls don't require auth tokens."
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "create_tweet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "11|li3gXFwkm6uCO8LmaRBhDJvBIEQowKostwX0nrqye1dd6103",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tweet_body",
+									"value": "I swear this night sucks",
+									"type": "text"
+								},
+								{
+									"key": "attachments[]",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tweets",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tweets"
+							]
+						},
+						"description": "Creates a new tweet. The tweet is assigned to the current user (must have a token)."
+					},
+					"response": [
+						{
+							"name": "create_tweet",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "tweet_body",
+											"value": "I swear this night sucks",
+											"type": "text"
+										},
+										{
+											"key": "attachments[]",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tweets",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tweets"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:13:28 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:13:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"tweet\": {\n        \"tweet_body\": \"I swear this night sucks\",\n        \"user_id\": 18,\n        \"updated_at\": \"2023-09-15T21:13:28.000000Z\",\n        \"created_at\": \"2023-09-15T21:13:28.000000Z\",\n        \"id\": 991080\n    },\n    \"attachments\": null\n}"
+						},
+						{
+							"name": "create_tweet_with_attachment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "tweet_body",
+											"value": "Had a fun time with friends earlier.",
+											"type": "text"
+										},
+										{
+											"key": "attachments[]",
+											"type": "file",
+											"src": [
+												"/E:/Pictures/BIBI.jpg",
+												"/E:/Pictures/bibiiii.jpg",
+												"/E:/Pictures/yhanyhan.jpg"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tweets",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tweets"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:15:17 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:15:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"tweet\": {\n        \"tweet_body\": \"Had a fun time with friends earlier.\",\n        \"user_id\": 18,\n        \"updated_at\": \"2023-09-15T21:15:17.000000Z\",\n        \"created_at\": \"2023-09-15T21:15:17.000000Z\",\n        \"id\": 991081\n    },\n    \"attachments\": [\n        {\n            \"tweet_id\": 991081,\n            \"filename\": \"6504c9657cbd4.jpg\",\n            \"mime_type\": \"image/jpeg\",\n            \"size\": 185035,\n            \"updated_at\": \"2023-09-15T21:15:17.000000Z\",\n            \"created_at\": \"2023-09-15T21:15:17.000000Z\",\n            \"id\": 6\n        },\n        {\n            \"tweet_id\": 991081,\n            \"filename\": \"6504c96582310.jpg\",\n            \"mime_type\": \"image/jpeg\",\n            \"size\": 356347,\n            \"updated_at\": \"2023-09-15T21:15:17.000000Z\",\n            \"created_at\": \"2023-09-15T21:15:17.000000Z\",\n            \"id\": 7\n        },\n        {\n            \"tweet_id\": 991081,\n            \"filename\": \"6504c96583415.jpg\",\n            \"mime_type\": \"image/jpeg\",\n            \"size\": 118493,\n            \"updated_at\": \"2023-09-15T21:15:17.000000Z\",\n            \"created_at\": \"2023-09-15T21:15:17.000000Z\",\n            \"id\": 8\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "update_tweet",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "11|li3gXFwkm6uCO8LmaRBhDJvBIEQowKostwX0nrqye1dd6103",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "tweet_body",
+									"value": "Had a fun time with fwends earlier uwu",
+									"type": "text"
+								},
+								{
+									"key": "attachments[]",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tweets/991081?_method=PUT",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tweets",
+								"991081"
+							],
+							"query": [
+								{
+									"key": "_method",
+									"value": "PUT"
+								}
+							]
+						},
+						"description": "Updates a tweet. The selected tweet should be owned by the current user (must have a token).\n\n/api/tweets/{insert tweet_id here}?_method=PUT"
+					},
+					"response": [
+						{
+							"name": "update_tweet",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "tweet_body",
+											"value": "Had a fun time with fwends earlier uwu",
+											"type": "text"
+										},
+										{
+											"key": "attachments[]",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tweets/991081?_method=PUT",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tweets",
+										"991081"
+									],
+									"query": [
+										{
+											"key": "_method",
+											"value": "PUT"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:19:09 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:19:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"tweet\": {\n        \"id\": 991081,\n        \"tweet_body\": \"Had a fun time with fwends earlier uwu\",\n        \"user_id\": 18,\n        \"created_at\": \"2023-09-15T21:15:17.000000Z\",\n        \"updated_at\": \"2023-09-15T21:19:09.000000Z\"\n    },\n    \"new_attachments\": null\n}"
+						},
+						{
+							"name": "update_tweet_with_new_attachment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "tweet_body",
+											"value": "Had a fun time with fwends earlier uwu",
+											"type": "text"
+										},
+										{
+											"key": "attachments[]",
+											"type": "file",
+											"src": "/C:/Users/ROG/Downloads/323453011_1233508940573793_479897703198890974_n.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tweets/991081?_method=PUT",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tweets",
+										"991081"
+									],
+									"query": [
+										{
+											"key": "_method",
+											"value": "PUT"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:20:24 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:20:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"tweet\": {\n        \"id\": 991081,\n        \"tweet_body\": \"Had a fun time with fwends earlier uwu\",\n        \"user_id\": 18,\n        \"created_at\": \"2023-09-15T21:15:17.000000Z\",\n        \"updated_at\": \"2023-09-15T21:19:09.000000Z\"\n    },\n    \"new_attachments\": [\n        {\n            \"filename\": \"6504ca980e384.png\",\n            \"tweet_id\": \"991081\",\n            \"mime_type\": \"image/png\",\n            \"size\": 567775,\n            \"updated_at\": \"2023-09-15T21:20:24.000000Z\",\n            \"created_at\": \"2023-09-15T21:20:24.000000Z\",\n            \"id\": 9\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "delete_tweet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "11|li3gXFwkm6uCO8LmaRBhDJvBIEQowKostwX0nrqye1dd6103",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/tweets/991080",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"tweets",
+								"991080"
+							]
+						},
+						"description": "Deletes a tweet. The selected tweet should be owned by the current user (must have a token).  \n/api/tweets/{insert tweet_id here}"
+					},
+					"response": [
+						{
+							"name": "delete_tweet",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/tweets/991080",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"tweets",
+										"991080"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:23:02 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:23:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.10"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=UTF-8"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "1"
+						}
+					]
+				},
+				{
+					"name": "logout_user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "11|li3gXFwkm6uCO8LmaRBhDJvBIEQowKostwX0nrqye1dd6103",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"logout"
+							]
+						},
+						"description": "Logouts a user where token owner will be logged out (must have a token)."
+					},
+					"response": [
+						{
+							"name": "logout_user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/logout",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:24:07 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 15 Sep 2023 21:24:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.10"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Logged out\"\n}"
+						}
+					]
+				}
+			],
+			"description": "The following API calls require auth tokens. Input them in the Auth tab with type 'Bearer Token'."
+		}
+	]
+}

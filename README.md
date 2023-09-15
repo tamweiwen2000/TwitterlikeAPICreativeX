@@ -1,6 +1,6 @@
 # TwitterlikeAPICreativeX
 
-This project is a simple Twitter clone for the Backend API Practical Test at CreativeX Co. Ltd. (Junior Laravel Developer Job Application). It is built using the Laravel framework.
+This project is a simple Twitter clone for the Backend API Practical Test at CreativeX Co. Ltd. (Junior Laravel Developer Job Application). This is my first time tinkering with laravel and I can say that I learned a lot of things despite the time constraint. Will definitely continue learning the framework and build better projects.
 
 ## Getting Started
 
