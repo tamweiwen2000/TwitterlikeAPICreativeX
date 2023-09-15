@@ -80,14 +80,17 @@ class TweetController extends Controller
             'tweet_body' => 'required'
         ]);
 
-        // Get the attachments of the tweet
-        $attachments = $tweet->attachments;
-
         // Update the attachments of the tweet if the $request contains attachments
         if ($request->hasFile('attachments')) {
             // $newAttachments = [];
+
+            // Get the attachments of the tweet
+            $attachments = $tweet->attachments;
+
             $newAttachment = $this->attachmentController->update($request, $id, $attachments);
             $newAttachmentResponse = $newAttachment->getData();
+
+            $tweet = Tweet::find($id);
         } else {
             $newAttachmentResponse = null;
         }
