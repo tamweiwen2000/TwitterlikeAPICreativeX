@@ -23,7 +23,7 @@
 -   [x] Update tweet (no attachments)
 -   [ ] Update tweet (with attachments)
 -   [x] Upload file attachment(s) to a tweet
--   [ ] Delete tweet
+-   [x] Delete tweet
 -   [ ] Follow/unfollow a user
 -   [ ] List followed user's tweet
 -   [ ] List suggested users follow
