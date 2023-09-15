@@ -9,7 +9,7 @@ Version used: Laravel Framework 10.22.0
 -   [x] Ability to login/logout (required)
 -   [x] Create/update tweet (required)
 -   [x] Upload file attachment(s) to a tweet (required)
--   [ ] Delete tweet
+-   [x] Delete tweet
 -   [ ] Follow/unfollow a user
 -   [ ] List followed user's tweet
 -   [ ] List suggested users follow
@@ -18,9 +18,10 @@ Version used: Laravel Framework 10.22.0
 
 -   [x] Ability to register
 -   [x] Ability to login
--   [ ] Ability to logout
+-   [x] Ability to logout
 -   [x] Create
--   [ ] Update tweet
+-   [x] Update tweet (no attachments)
+-   [ ] Update tweet (with attachments)
 -   [x] Upload file attachment(s) to a tweet
 -   [ ] Delete tweet
 -   [ ] Follow/unfollow a user
