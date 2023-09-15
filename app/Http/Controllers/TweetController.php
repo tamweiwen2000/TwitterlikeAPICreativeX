@@ -73,7 +73,7 @@ class TweetController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        dd($request->hasFile('attachments'));
+        // dd($request->hasFile('attachments'));
         $tweet = Tweet::find($id);
 
         $fields = $request->validate([
@@ -86,26 +86,12 @@ class TweetController extends Controller
         // Update the attachments of the tweet if the $request contains attachments
         if ($request->hasFile('attachments')) {
             // $newAttachments = [];
-
-            // Delete the existing attachments
-            foreach ($attachments as $attachment) {
-                $attachment->delete();
-            }
-
-            foreach ($request->file('attachments') as $attachment) {
-                $filename = uniqid() . '.' . $attachment->getClientOriginalExtension();
-                $attachment->storeAs('public/tweets/attachments', $filename);
-
-                $newAttachment = new Attachment();
-                $newAttachment->filename = $filename;
-                // $newAttachment->file_path = $attachment->storeAs('attachments', $attachment->getClientOriginalName());
-                $newAttachment->tweet_id = $tweet->id;
-                $newAttachment->mime_type = $attachment->getMimeType();
-                $newAttachment->size = $attachment->getSize();
-
-                $newAttachment->save();
-            }
+            $newAttachment = $this->attachmentController->update($request, $id, $attachments);
+            $newAttachmentResponse = $newAttachment->getData();
+        } else {
+            $newAttachmentResponse = null;
         }
+
 
         $tweet->update([
             'tweet_body' => $fields['tweet_body'],
@@ -113,13 +99,14 @@ class TweetController extends Controller
 
         $response = [
             'tweet' => $tweet,
+            'new_attachments' => $newAttachmentResponse
         ];
 
         return response($response, 201);
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove a tweet.
      */
     public function destroy(string $id)
     {

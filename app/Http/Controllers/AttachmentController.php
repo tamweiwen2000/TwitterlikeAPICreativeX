@@ -37,4 +37,34 @@ class AttachmentController extends Controller
         // Return the attachments
         return response()->json($attachments);
     }
+
+    public function update(Request $request, string $id, object $attachments)
+    {
+        // Delete the existing attachments
+        foreach ($attachments as $attachment) {
+            $attachment->delete();
+        }
+
+        $newAttachments = [];
+        foreach ($request->file('attachments') as $attachment) {
+            $filename = uniqid() . '.' . $attachment->getClientOriginalExtension();
+            $attachment->storeAs('public/tweets/attachments', $filename);
+
+            $newAttachment = new Attachment();
+            $newAttachment->filename = $filename;
+
+            //will add this later on
+            // $newAttachment->file_path = $attachment->storeAs('attachments', $attachment->getClientOriginalName()); 
+
+            $newAttachment->tweet_id = $id;
+            $newAttachment->mime_type = $attachment->getMimeType();
+            $newAttachment->size = $attachment->getSize();
+            $newAttachment->save();
+
+            $newAttachments[] = $newAttachment;
+        }
+
+        // Return the new attachments
+        return response()->json($newAttachments);
+    }
 }
