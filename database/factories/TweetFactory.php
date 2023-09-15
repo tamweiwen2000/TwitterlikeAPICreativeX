@@ -19,11 +19,12 @@ class TweetFactory extends Factory
     public function definition(): array
     {
 
-        $userID = User::inRandomOrder()->first()->id;
+        // $userID = User::inRandomOrder()->first()->id;
 
         return [
+            'id' => fake()->numberBetween(1, 1000000),
             'tweet_body' => fake()->realText(280),
-            'user_id' => $userID,
+            // 'user_id' => $userID,
         ];
     }
 }
