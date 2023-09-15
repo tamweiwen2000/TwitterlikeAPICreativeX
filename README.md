@@ -16,9 +16,11 @@ Requirements: Use the latest version of Laravel
 ## Tests Done
 
 -   [x] Ability to register
--   [ ] Ability to login/logout
--   [ ] Create/update tweet
--   [ ] Upload file attachment(s) to a tweet
+-   [x] Ability to login
+-   [ ] Ability to logout
+-   [x] Create
+-   [ ] Update tweet
+-   [x] Upload file attachment(s) to a tweet
 -   [ ] Delete tweet
 -   [ ] Follow/unfollow a user
 -   [ ] List followed user's tweet
