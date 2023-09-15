@@ -24,9 +24,10 @@ Once you have these installed, you can follow these steps to set up the project:
 
 ## API Documentation
 
-The API documentation can be found in this link
+The API documentation can be found in
 
 -   https://documenter.getpostman.com/view/29653077/2s9YC7RWiT
+-   `docs/documentation/` directory
 
 ## Testing
 
