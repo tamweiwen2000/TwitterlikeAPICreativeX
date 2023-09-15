@@ -12,7 +12,7 @@ use Database\Factories\AttachmentFactory;
 
 class TweetTest extends TestCase
 {
-    // use RefreshDatabase;
+    use RefreshDatabase;
     use WithFaker;
 
     private User $user;
