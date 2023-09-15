@@ -73,8 +73,17 @@ class TweetController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // dd($request->hasFile('attachments'));
         $tweet = Tweet::find($id);
+
+        //Does not let a user to update another user's tweet
+        if ($request->user()->cannot('update', $tweet)) {
+            $response = [
+                "error" => "You do not have permission to update this tweet."
+            ];
+
+            return response($response, 403);
+        }
+        // dd($request->hasFile('attachments'));
 
         $fields = $request->validate([
             'tweet_body' => 'required'
