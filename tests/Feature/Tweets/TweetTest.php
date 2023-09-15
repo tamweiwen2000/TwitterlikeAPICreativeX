@@ -37,6 +37,21 @@ class TweetTest extends TestCase
         ]);
     }
 
+    public function testCreateTweetUnsuccessfully()
+    {
+        // Disable form validation middleware
+        $this->withoutMiddleware();
+
+        $user = User::factory()->create();
+        $tweet = Tweet::factory()
+            ->make(['user_id' => $user->id, 'tweet_body' => null])
+            ->toArray();
+
+        $response = $this->actingAs($user)->post("/api/tweets/", $tweet);
+
+        $response->assertSessionHasErrors();
+    }
+
     public function testCreateTweetWithAttachmentSuccessfully()
     {
 

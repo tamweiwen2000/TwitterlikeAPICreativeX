@@ -83,7 +83,6 @@ class TweetController extends Controller
 
             return response($response, 403);
         }
-        // dd($request->hasFile('attachments'));
 
         $fields = $request->validate([
             'tweet_body' => 'required'
@@ -91,7 +90,6 @@ class TweetController extends Controller
 
         // Update the attachments of the tweet if the $request contains attachments
         if ($request->hasFile('attachments')) {
-            // $newAttachments = [];
 
             // Get the attachments of the tweet
             $attachments = $tweet->attachments;
