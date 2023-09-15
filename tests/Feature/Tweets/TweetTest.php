@@ -15,24 +15,15 @@ class TweetTest extends TestCase
     use RefreshDatabase;
     use WithFaker;
 
-    private User $user;
-    private Tweet $tweet;
-    public function setUp(): void
-    {
-        parent::setUp();
-        $user = User::factory()->create();
-        $this->user = $user;
 
-        $tweet = Tweet::factory()->create(['user_id' => $this->user->id]);
-        $this->tweet = $tweet;
-    }
 
     public function testCreateTweetSuccessfully()
     {
-        // $tweet = Tweet::factory(1)->create(['user_id' => $this->user]);
-        $tweet = $this->tweet->toArray();
+        $user = User::factory()->create();
+        $tweet = Tweet::factory()->create(['user_id' => $user->id]);
+        $tweet = $tweet->toArray();
 
-        $response = $this->actingAs($this->user)->post("/api/tweets/", $tweet);
+        $response = $this->actingAs($user)->post("/api/tweets/", $tweet);
 
         $response->assertSessionHasNoErrors();
         $response->assertStatus(201);
@@ -51,10 +42,11 @@ class TweetTest extends TestCase
     public function testCreateTweetWithAttachmentSuccessfully()
     {
 
-        // $tweet = Tweet::factory(1)->create(['user_id' => $this->user]);
-        $tweet = $this->tweet->toArray();
+        $user = User::factory()->create();
+        $tweet = Tweet::factory()->create(['user_id' => $user->id]);
+        $tweet = $tweet->toArray();
 
-        $response = $this->actingAs($this->user)->post("/api/tweets/", $tweet);
+        $response = $this->actingAs($user)->post("/api/tweets/", $tweet);
 
         $response->assertSessionHasNoErrors();
         $response->assertStatus(201);

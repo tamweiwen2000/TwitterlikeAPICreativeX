@@ -45,8 +45,8 @@ class TweetController extends Controller
 
         //Check if there are attachments on tweet
         if ($request['attachments']) {
-            $attachment = $this->attachmentController->store($request, $tweet->id);
-            $attachmentResponse = $attachment->original;
+            $attachment = $this->attachmentController->store($request, $tweet);
+            $attachmentResponse = $attachment->getData();
         } else {
             $attachmentResponse = null;
         }
@@ -60,7 +60,7 @@ class TweetController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display specific tweet.
      */
     public function show(string $id)
     {

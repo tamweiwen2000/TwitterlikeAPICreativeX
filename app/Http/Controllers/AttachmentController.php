@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attachment;
+use App\Models\Tweet;
 use Illuminate\Http\Request;
 
 class AttachmentController extends Controller
 {
-    public function store(Request $request, int $tweet_id)
+    public function store(Request $request, Tweet $tweet)
     {
         // dd($request);
         // Validate the request
@@ -24,7 +25,7 @@ class AttachmentController extends Controller
             $file->storeAs('public/tweets/attachments', $filename);
 
             $attachment = new Attachment();
-            $attachment->tweet_id = $tweet_id;
+            $attachment->tweet_id = $tweet->id;
             $attachment->filename = $filename;
             $attachment->mime_type = $file->getMimeType();
             $attachment->size = $file->getSize();
