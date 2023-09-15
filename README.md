@@ -1,6 +1,7 @@
 ## Backend API Practical Test
 
 Requirements: Use the latest version of Laravel
+Version used: Laravel Framework 10.22.0
 
 ## Create a simple Twitter-like app API
 
